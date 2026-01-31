@@ -1,4 +1,7 @@
 package org.example.userservice.exceptions;
 
-public class UserNotFoundException {
+public class UserNotFoundException extends Exception{
+    public UserNotFoundException(String message){
+        super(message);
+    }
 }

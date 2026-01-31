@@ -7,11 +7,16 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-//    @Bean
-//    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.authorizeRequests().anyRequest().permitAll()
-//                .and().csrf((c) -> c.disable());
-//
-//        return http.build();
-//    }
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        http
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()   // allow all requests
+                )
+                .csrf(csrf -> csrf.disable());       // disable CSRF for testing
+
+        return http.build();
+    }
+
 }
